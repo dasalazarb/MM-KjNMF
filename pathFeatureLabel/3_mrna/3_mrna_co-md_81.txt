@@ -1,0 +1,16 @@
+mrna_SHC1
+mrna_WASF2
+mrna_SPG7
+mrna_MAP3K7
+mrna_AKT2
+mrna_RLIM
+mrna_VCP
+mrna_RASA1
+mrna_WEE1
+mrna_FAM3C
+mrna_NUMA1
+mrna_ADAR
+mrna_PRKAR1A
+mrna_JAK1
+mrna_DCTN4
+mrna_WDR35

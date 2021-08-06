@@ -1,0 +1,9 @@
+cnv_MIR429
+cnv_EPHA3
+cnv_MIR143
+cnv_PMS1
+cnv_WRAP53
+cnv_ATP7A
+cnv_HMBS
+cnv_MED12
+cnv_LEPR

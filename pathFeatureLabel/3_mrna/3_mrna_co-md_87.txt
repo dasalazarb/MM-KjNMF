@@ -1,0 +1,7 @@
+mrna_SDHA
+mrna_SMC1A
+mrna_TAP2
+mrna_ERCC6
+mrna_RBL1
+mrna_ELAVL1
+mrna_SOS1

@@ -116,5 +116,5 @@ for (i in 1:length(ck2$geneID)) {
   ck2$geneID[i] <- paste(paste0("mrna_", bitr(unlist(strsplit(ck2$geneID[i], "/")), fromType="ENTREZID", toType="SYMBOL", OrgDb="org.Hs.eg.db")$SYMBOL), collapse = "/")
 }
 
-write.table(ck2, paste0(pathFeatureLabel,"/co-md_records/record_mrna.csv"), sep=",", row.names = FALSE)
+write.table(ck2, paste0(pathFeatureLabel,"/co-mod_records/record_mrna.csv"), sep=",", row.names = FALSE)
 #write.table(ck2, paste0(pathFeatureLabel,"/co-md_records/Supplementary_File_S4.csv"), sep=",", row.names = FALSE)

@@ -1,0 +1,14 @@
+mrna_PIK3C2A
+mrna_OLA1
+mrna_MAP2K2
+mrna_SKP2
+mrna_SCO2
+mrna_MBD4
+mrna_KIF15
+mrna_AGGF1
+mrna_FAN1
+mrna_TTC7A
+mrna_IGFBP3
+mrna_SMAD3
+mrna_AFF4
+mrna_PALB2

@@ -1,0 +1,15 @@
+mrna_PTPN13
+mrna_SKI
+mrna_MAPK14
+mrna_AP3B1
+mrna_MMP2
+mrna_KDM6A
+mrna_BMPR2
+mrna_EBAG9
+mrna_SNAI1
+mrna_SNCA
+mrna_CDH5
+mrna_GADD45B
+mrna_CEBPA
+mrna_MEN1
+mrna_ECT2

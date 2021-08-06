@@ -1,0 +1,10 @@
+mrna_CHI3L1
+mrna_CD5
+mrna_WRN
+mrna_CD81
+mrna_PVT1
+mrna_FCGR2A
+mrna_AIMP2
+mrna_DNAH1
+mrna_VHL
+mrna_ACTN4

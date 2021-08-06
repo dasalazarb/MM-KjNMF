@@ -317,7 +317,6 @@ def compute_actualize_H_record(H_record, Hsumtheta_record, sumHRt_record,AtKAH,K
             numerator=np.dot(A0['A0_ccle'][i].T,Kn['K_ccle'][i].T)+np.dot(A0['A0_tcga'][i].T,Kn['K_tcga'][i].T)+((L1/2)*Hsumtheta_record[i])+((L2/2)*sumHRt_record[i])
             denominator=AtKAH['AtKAH_ccle'][i]+AtKAH['AtKAH_tcga'][i]+(d1*np.dot(np.ones([K,K]),H_record[i]))+np.finfo(float).eps
         H_record[i] =  H_record[i]*(numerator / denominator);
-        #H_record[i] =  H_record[i]*np.sqrt(numerator / denominator);
         factorH[i]=(numerator / denominator)
         
     return H_record,factorH
@@ -346,10 +345,8 @@ def jNMF_module(H,t,path,featureLabel, print_savePath,is_best_H,method_clusterin
                     try:
                         # Create target Directory
                         os.mkdir(path+'/'+perfil+'_cluster_weight')
-                        # print("Directory " , path+'/'+perfil+'_cluster_weight' ,  " Created ")
                     except FileExistsError:
                         pass
-                        # print("Directory " , path+'/'+perfil+'_cluster_weight' ,  " already exists")
                 
                 # limpiar carpeta para evitar incluir resultados de experimentos anteriores
                 folder=path+"/"+perfil+'_cluster_weight'
@@ -381,13 +378,10 @@ def jNMF_module(H,t,path,featureLabel, print_savePath,is_best_H,method_clusterin
         
         #valor de la pertenencia al cluster
         H_maximos_valor = {perfil: np.max(v, axis=0) for perfil, v in H.items()}
-        # H_maximos_valor = np.max(H["2_mrna"], axis=0)
         
         # Outliers
         #clusters unicos para los features de la omica
         unicos = {perfil: np.unique(H_maximos[perfil]) for perfil in H_maximos.keys()}
-        # unicos = np.unique(H_maximos["2_mrna"])
-        # unicos_conteos = dict(zip(unicos, conteos))
         
         def unicos_H_max_Q2(unicos, H, H_maximos, H_maximos_valor, perfil):
             #para cada cluster i
@@ -397,8 +391,6 @@ def jNMF_module(H,t,path,featureLabel, print_savePath,is_best_H,method_clusterin
                 #cuartil 1 y 2 el cuartil es un tipo de cuantil. Hay diferentes tipos de cuantiles (dividen la distribucion en partes iguales): cuartiles, quintiles, deciles y percentiles
                 Q1 = np.quantile(partial_H, .25)
                 Q2 = np.quantile(partial_H, .50)
-                # Q3 = np.quantile(H_max_mrna, .75)
-                # IQR = Q3 - Q1
                 
                 # los valores maximos proximos a cero (debajo de Q1, debajo de Q2 en mrna)se omiten por lo que se fija su valor en 9999
                 # al ser llamados mas abajo en la formacion de co-modulos, no se encontraran y no 
@@ -418,22 +410,12 @@ def jNMF_module(H,t,path,featureLabel, print_savePath,is_best_H,method_clusterin
         H_maximos_second = {perfil: np.argsort(-v, axis=0)[1] for perfil, v in H.items()} #np.argsort: Returns the indices that would sort(ascendent)an array .-v descendent, toma segunda pos, SEGUNDO MAXIMO
         
         H_maximos_valor = {perfil: np.abs(np.sort(-v, axis=0)[1]) for perfil, v in H.items()}
-        # H_maximos_valor = np.abs(np.sort(-H["2_mrna"], axis=0)[1])
         
         # Outliers
         unicos = {perfil: np.unique(H_maximos_second[perfil]) for perfil in H_maximos_second.keys()}
-        # unicos = np.unique(H_maximos_second["2_mrna"])
-        # unicos_conteos = dict(zip(unicos, conteos))
         
         def unicos_H_max_second_Q2(unicos, H, H_maximos_second, H_maximos_valor, perfil):
             for i in unicos[perfil]:
-                # partial_H = H[perfil][:,np.where(H_maximos_second[perfil] == i)[0]]
-                # ##saca pertenencia a cluster con maximo, no con 2do maximo
-                # H_max_mrna = np.max(partial_H, axis=0)
-                # Q1 = np.quantile(H_max_mrna, .25)
-                # Q3 = np.quantile(H_max_mrna, .75)
-                # IQR = Q3 - Q1           
-                #CHANGE SARA
                 #Con 2do maximo.valor de la pertenencia al cluster i, dist. de valor de la pertenancia al cluster i            
                 partial_H = H[perfil][i,np.where(H_maximos_second[perfil] == i)[0]]
                 Q1 = np.quantile(partial_H, .25)
@@ -455,13 +437,10 @@ def jNMF_module(H,t,path,featureLabel, print_savePath,is_best_H,method_clusterin
                  try:
                      # Create target Directory
                      os.mkdir(path+'/'+perfil)
-                     # print("Directory " , path+'/'+perfil,  " Created ")
                  except FileExistsError:
                      pass
-                     # print("Directory " , path+'/'+perfil ,  " already exists")
              
              # limpiar carpeta para evitar incluir resultados de experimentos anteriores
-             # if perfil == "2_mrna":
              folder=path+'/'+perfil
              for filename in os.listdir(folder):
                  file_path = os.path.join(folder, filename)
@@ -475,11 +454,8 @@ def jNMF_module(H,t,path,featureLabel, print_savePath,is_best_H,method_clusterin
                  comodule[perfil]['co-md_'+str(i)][0] = np.append(comodule[perfil]['co-md_'+str(i)][0], adicional_segundo[0]);
                  #diccionario, para cada omica muestra los K comodulos con el # de features que pertenecen a dichos comodulos 
                  comodule_count[perfil]['co-md_'+str(i)] = len(comodule[perfil]['co-md_'+str(i)][0])
-                 # adicional_tercero = np.where(i == H_maximos_third[perfil]);
-                 # comodule[perfil]['co-md_'+str(i)][0] = np.append(comodule[perfil]['co-md_'+str(i)][0], adicional_tercero[0]);
                  
                  ## Connectivity matrix.
-                 # matriz = product(list([i]), list(comodule[perfil]['co-md_'+str(i)][0]));
                  #product->cartesian product from the given iterator. Parejas de features en el mismo comodulo (incluye i=j) (38,38),(38,50),.. etc
                  if value.shape[1] > 1000:
                      pass
@@ -491,7 +467,6 @@ def jNMF_module(H,t,path,featureLabel, print_savePath,is_best_H,method_clusterin
                  if print_savePath == True:
                      listaFeatures = [featureLabel[perfil][v] for v in comodule[perfil]['co-md_'+str(i)][0]]
                      with open(path+'/'+perfil+'/'+perfil+'_co-md_'+str(i)+'.txt', 'w') as f:
-                         #pickle.dump([featureLabel[perfil][v] for v in comodule[perfil]['co-md_'+str(i)][0]], f)
                          f.writelines("%s\n" % l for l in listaFeatures)
                          
         if is_best_H:
@@ -513,7 +488,7 @@ def jNMF_module(H,t,path,featureLabel, print_savePath,is_best_H,method_clusterin
                 else:
                     print("    * Something is wrong with " + scriptName + '\n')
                     
-                record_mrna = pd.read_csv(path+"/co-md_records/record_mrna.csv");
+                record_mrna = pd.read_csv(path+"/co-mod_records/record_mrna.csv");
                 if record_mrna.shape[0] == 0:
                     BioScore=0
                     codEnrich_over_codTotal=0; T4=0; saraPenalization=0; geneRatio_avg=0; geneRatio_sd=0;

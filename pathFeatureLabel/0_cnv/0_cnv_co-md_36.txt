@@ -1,0 +1,13 @@
+cnv_ITGB4
+cnv_IL23R
+cnv_RHOB
+cnv_MIR205
+cnv_BMX
+cnv_BBS4
+cnv_AGK
+cnv_CXADR
+cnv_TET2
+cnv_PRDM2
+cnv_TLR3
+cnv_PPP2R2A
+cnv_NR1H2

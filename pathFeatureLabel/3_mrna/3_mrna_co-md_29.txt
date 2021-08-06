@@ -1,0 +1,15 @@
+mrna_HADHB
+mrna_MAPK1
+mrna_TPMT
+mrna_EEF1A1
+mrna_MTHFR
+mrna_POLR1D
+mrna_HDAC5
+mrna_ELAC2
+mrna_FANCL
+mrna_PPM1D
+mrna_OGG1
+mrna_TBP
+mrna_TPI1
+mrna_ITGAV
+mrna_FN1

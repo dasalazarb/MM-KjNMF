@@ -1,0 +1,15 @@
+cnv_AXL
+cnv_MRC2
+cnv_PRKAR1A
+cnv_LIPC
+cnv_UCA1
+cnv_DRD4
+cnv_MIR382
+cnv_RASSF5
+cnv_APOC3
+cnv_CD40
+cnv_MIR409
+cnv_TCF7L2
+cnv_MIR501
+cnv_LDLR
+cnv_DNAJC6

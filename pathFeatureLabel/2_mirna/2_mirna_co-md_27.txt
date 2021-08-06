@@ -1,0 +1,7 @@
+mirna_HSA-MIR-487B
+mirna_HSA-MIR-148B
+mirna_HSA-MIR-758
+mirna_HSA-MIR-218
+mirna_HSA-MIR-370
+mirna_HSA-MIR-16
+mirna_HSA-MIR-125B

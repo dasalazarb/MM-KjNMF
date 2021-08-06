@@ -1,0 +1,15 @@
+cnv_MIR146B
+cnv_AOC3
+cnv_MIR145
+cnv_MIR574
+cnv_SCGB2A2
+cnv_RYR1
+cnv_RECK
+cnv_AREG
+cnv_DUS2
+cnv_TCIRG1
+cnv_XRCC5
+cnv_TNFRSF10C
+cnv_GNA11
+cnv_SH2B3
+cnv_CCL11

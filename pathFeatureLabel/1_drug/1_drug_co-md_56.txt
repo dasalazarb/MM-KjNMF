@@ -1,0 +1,7 @@
+drug_DOCETAXEL_0.0125
+drug_JW-7-52-1_1.2
+drug_RO-3306_5
+drug_RTRAIL_0.1
+drug_ETOPOSIDE_16
+drug_BLEOMYCIN_64
+drug_SNX-2112_2.56

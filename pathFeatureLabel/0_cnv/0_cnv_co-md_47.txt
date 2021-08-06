@@ -1,0 +1,7 @@
+cnv_CCR5
+cnv_CYSLTR2
+cnv_CCNB1
+cnv_MPL
+cnv_COL18A1
+cnv_PRSS1
+cnv_XRCC4

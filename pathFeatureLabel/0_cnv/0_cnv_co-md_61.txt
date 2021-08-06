@@ -1,0 +1,12 @@
+cnv_NEAT1
+cnv_PRDM16
+cnv_PRKCD
+cnv_WEE1
+cnv_TRAF3
+cnv_PTPN1
+cnv_RASA1
+cnv_GRPR
+cnv_DES
+cnv_SDHAF2
+cnv_PIK3CG
+cnv_ELN

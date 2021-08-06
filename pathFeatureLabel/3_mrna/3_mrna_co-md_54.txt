@@ -1,0 +1,9 @@
+mrna_CDK2
+mrna_HMGCR
+mrna_EDN1
+mrna_CFLAR
+mrna_NID1
+mrna_SULF2
+mrna_LACTB
+mrna_REV3L
+mrna_CBR1

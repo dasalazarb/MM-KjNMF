@@ -1,0 +1,17 @@
+mrna_TACR1
+mrna_WIPF1
+mrna_CASP9
+mrna_PPP2CA
+mrna_E2F4
+mrna_SDHAF2
+mrna_TRAF1
+mrna_WRAP53
+mrna_SLC7A7
+mrna_DROSHA
+mrna_WNT2B
+mrna_CD4
+mrna_HSD11B1
+mrna_CSF2RB
+mrna_BAG3
+mrna_UBC
+mrna_MTR

@@ -1,0 +1,11 @@
+mrna_IDH2
+mrna_MMP14
+mrna_VDAC1
+mrna_ARHGEF2
+mrna_EDNRA
+mrna_PLD2
+mrna_GNPTAB
+mrna_ATXN2
+mrna_GADD45A
+mrna_TCTN3
+mrna_PARN

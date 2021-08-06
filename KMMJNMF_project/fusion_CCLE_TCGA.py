@@ -88,7 +88,6 @@ class fusion_CCLE_TCGA(dataCCLE.dataCCLE, dataTCGA.dataTCGA):
             miss_profile = []
         
         print("")
-        # print("    * Loading {} and {} preprocessed data".format(projects[1], projects[0]))
         ## profiles_project_TCGA
         self.perfiles_TCGA = {perfil.replace(".csv", "").replace(projects[1]+"_", ""): dataTCGA.dataTCGA(self.path+"INPUT DATA/"+perfil,"", "", "", True) for perfil in project_profile if projects[1] in perfil};
         ## profiles_project_CCLE
@@ -105,7 +104,6 @@ class fusion_CCLE_TCGA(dataCCLE.dataCCLE, dataTCGA.dataTCGA):
                     self.perfiles_TCGA[item].infoFeatures["columns"] = self.perfiles_CCLE[item].infoFeatures["columns"];
                     self.perfiles_TCGA[item].profile = self.perfiles_TCGA[item].profile.copy()
                     self.perfiles_TCGA[item].profile = np.empty([len(self.perfiles_TCGA[profiles_project_TCGA[0]].infoFeatures["rows"]),len(self.perfiles_TCGA[item].infoFeatures["columns"])]) ## crear matriz vacia con dimensiones nuevas
-                    # print(self.perfiles_TCGA[item].profile.shape)
             elif len(profiles_project_TCGA) > len(profiles_project_CCLE): 
                 for item in miss_profile:
                     self.perfiles_CCLE[item] = dataTCGA.dataTCGA(self.path+"INPUT DATA/"+projects[1]+"_"+item+".csv","", "", "", True);
@@ -115,9 +113,6 @@ class fusion_CCLE_TCGA(dataCCLE.dataCCLE, dataTCGA.dataTCGA):
                     self.perfiles_CCLE[item].infoFeatures["columns"] = self.perfiles_TCGA[item].infoFeatures["columns"]
                     self.perfiles_CCLE[item].profile = self.perfiles_CCLE[item].profile.copy()
                     self.perfiles_CCLE[item].profile = np.empty([len(self.perfiles_CCLE[profiles_project_TCGA[0]].infoFeatures["rows"]),len(self.perfiles_CCLE[item].infoFeatures["columns"])]) ## crear matriz vacia con dimensiones nuevas
-                    # print(len(self.perfiles_CCLE[profiles_project_TCGA[0]].infoFeatures["rows"]))
-                    # print(self.perfiles_CCLE[item].profile.shape)
-                    # print(self.perfiles_TCGA[item].profile.shape)
             else:
                 pass
         else:
@@ -166,10 +161,13 @@ class fusion_CCLE_TCGA(dataCCLE.dataCCLE, dataTCGA.dataTCGA):
             with open(self.path+'/pathFeatureLabel/co-mod_train_test_split/index_test_'+self.project2+'.json', 'w') as fp:
                 json.dump(self.index_test_ccle, fp)
         
+        self.featureLabel = dataTCGA.dataTCGA.concatFeatureLabel(self.perfiles_CCLE, self.path, "") ## Modifica y guarda el featureLabel de los perfiles actualizados. Este es util para crear las restricciones (usando scripts en R).
+        dataTCGA.dataTCGA.saveBarcode_projects(self.perfiles_TCGA[list(self.perfiles_TCGA.keys())[0]].infoFeatures["rows"], self.path,projects[1])
+        dataTCGA.dataTCGA.saveBarcode_projects(self.perfiles_CCLE[list(self.perfiles_CCLE.keys())[0]].infoFeatures["rows"], self.path,projects[0])
+        
         print("    * The dimensions are: ")
         print(" .................................. ")
         for perfil, v in self.perfiles_CCLE.items():
-            # print("Profile {}".format(perfil))
             print("{} dimensions for {}: {} x {}".format(perfil, projects[0], v.profile.shape[0], v.profile.shape[1]))
             print("{} dimensions for {}: {} x {}".format(perfil, projects[1], self.perfiles_TCGA[perfil].profile.shape[0], self.perfiles_TCGA[perfil].profile.shape[1]))
             print("--''--")

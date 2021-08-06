@@ -1,0 +1,10 @@
+mrna_RPS3A
+mrna_WFS1
+mrna_VCAM1
+mrna_PDGFRB
+mrna_GJA5
+mrna_SULF1
+mrna_DTX1
+mrna_XRCC1
+mrna_NME1
+mrna_CDC73

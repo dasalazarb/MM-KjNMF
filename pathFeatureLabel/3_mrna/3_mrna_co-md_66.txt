@@ -1,0 +1,8 @@
+mrna_SPARC
+mrna_TCF7
+mrna_TFRC
+mrna_COL1A2
+mrna_COL11A2
+mrna_MAPT
+mrna_CYBB
+mrna_CD22

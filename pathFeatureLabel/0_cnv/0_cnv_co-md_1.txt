@@ -1,0 +1,14 @@
+cnv_RNASE3
+cnv_MIR188
+cnv_CHRNG
+cnv_IL13
+cnv_XIAP
+cnv_CFTR
+cnv_CC2D2A
+cnv_NAT1
+cnv_ARG1
+cnv_TPX2
+cnv_FAS
+cnv_MIR520C
+cnv_SFTPC
+cnv_PRKAA2

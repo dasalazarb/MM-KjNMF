@@ -1,0 +1,9 @@
+mrna_SLC17A5
+mrna_FBXW7
+mrna_EI24
+mrna_LCAT
+mrna_EPHB2
+mrna_DYRK1B
+mrna_AGT
+mrna_CDK7
+mrna_SLC37A4

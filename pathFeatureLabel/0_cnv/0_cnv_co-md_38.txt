@@ -1,0 +1,12 @@
+cnv_CALD1
+cnv_ARF1
+cnv_KCNQ1
+cnv_TAC1
+cnv_GPRC5A
+cnv_ADORA1
+cnv_LAMA2
+cnv_PIK3CA
+cnv_UCHL1
+cnv_NF1
+cnv_FANCE
+cnv_CYP2E1

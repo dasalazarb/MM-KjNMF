@@ -1,0 +1,16 @@
+cnv_FRAS1
+cnv_LPP
+cnv_TNFSF12
+cnv_RELB
+cnv_TFG
+cnv_ITGAM
+cnv_MIAT
+cnv_AKR1C1
+cnv_MIR423
+cnv_MIR200A
+cnv_HBA2
+cnv_GAB1
+cnv_ITGB3
+cnv_FUT4
+cnv_FADD
+cnv_CHRM3

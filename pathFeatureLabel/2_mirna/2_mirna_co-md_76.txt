@@ -1,0 +1,5 @@
+mirna_HSA-MIR-559
+mirna_HSA-MIR-548K
+mirna_HSA-LET-7E
+mirna_HSA-MIR-548L
+mirna_HSA-MIR-504

@@ -1,0 +1,13 @@
+mrna_CTBP1
+mrna_FGF7
+mrna_XBP1
+mrna_TLR4
+mrna_HSPA4
+mrna_NGFR
+mrna_NR1H2
+mrna_ASAH1
+mrna_RBM5
+mrna_DHCR24
+mrna_DDR1
+mrna_RNASEL
+mrna_LRP1

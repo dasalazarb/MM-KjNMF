@@ -1,0 +1,12 @@
+mrna_IGBP1
+mrna_LEF1
+mrna_FANCM
+mrna_U2AF1
+mrna_ILK
+mrna_MCL1
+mrna_CD36
+mrna_APP
+mrna_RBBP8
+mrna_INSR
+mrna_NCOA2
+mrna_CCNE1

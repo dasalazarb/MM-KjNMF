@@ -1,0 +1,16 @@
+mrna_ATF1
+mrna_IFT172
+mrna_POLK
+mrna_CEP290
+mrna_ITGB3
+mrna_TACC1
+mrna_FANCC
+mrna_PKD2
+mrna_MLH1
+mrna_EFEMP2
+mrna_PIGA
+mrna_ADAM15
+mrna_KDM5B
+mrna_HSP90AB1
+mrna_PER1
+mrna_CSNK1D

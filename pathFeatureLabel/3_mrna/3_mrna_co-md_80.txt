@@ -1,0 +1,7 @@
+mrna_PMP22
+mrna_ZEB2
+mrna_CCNH
+mrna_TBX3
+mrna_BCL2
+mrna_HNRNPA2B1
+mrna_IFIH1

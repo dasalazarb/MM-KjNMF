@@ -1,0 +1,11 @@
+mrna_ESRRA
+mrna_SLC43A1
+mrna_FUT4
+mrna_RAD51D
+mrna_RASSF5
+mrna_PTPRG
+mrna_DNAJC6
+mrna_HDAC4
+mrna_WDR19
+mrna_HYDIN
+mrna_NCF2

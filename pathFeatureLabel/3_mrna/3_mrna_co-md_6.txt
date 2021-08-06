@@ -1,0 +1,15 @@
+mrna_XIAP
+mrna_SAFB
+mrna_RRAS2
+mrna_MYH9
+mrna_IL6R
+mrna_BCL6
+mrna_CALD1
+mrna_RTEL1
+mrna_BCL3
+mrna_DDX5
+mrna_USB1
+mrna_TET2
+mrna_CCNA2
+mrna_TMEM67
+mrna_TRAF3

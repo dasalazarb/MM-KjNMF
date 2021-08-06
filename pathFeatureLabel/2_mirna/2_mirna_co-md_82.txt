@@ -1,0 +1,6 @@
+mirna_HSA-MIR-100
+mirna_HSA-LET-7G
+mirna_HSA-MIR-1538
+mirna_HSA-MIR-580
+mirna_HSA-MIR-627
+mirna_HSA-MIR-616

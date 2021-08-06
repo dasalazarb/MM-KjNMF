@@ -1,0 +1,6 @@
+cnv_PTPN11
+cnv_EFNB3
+cnv_PDGFRL
+cnv_HSD17B1
+cnv_PTH1R
+cnv_MTR

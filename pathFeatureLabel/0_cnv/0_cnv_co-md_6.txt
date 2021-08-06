@@ -1,0 +1,10 @@
+cnv_MAPT
+cnv_ARSH
+cnv_HPS6
+cnv_TLR8
+cnv_AKR1C3
+cnv_CDK7
+cnv_PTK2B
+cnv_GHR
+cnv_MS4A1
+cnv_DCK

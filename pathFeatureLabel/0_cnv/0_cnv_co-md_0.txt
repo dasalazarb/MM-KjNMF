@@ -1,0 +1,11 @@
+cnv_MIR502
+cnv_PORCN
+cnv_CCL18
+cnv_MIRLET7C
+cnv_UBE2I
+cnv_PRKCB
+cnv_ASXL1
+cnv_LMNA
+cnv_PIK3CD
+cnv_DGCR5
+cnv_SNHG16

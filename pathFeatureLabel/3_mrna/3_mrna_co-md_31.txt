@@ -1,0 +1,15 @@
+mrna_BBS1
+mrna_TP53TG1
+mrna_IST1
+mrna_IKBKB
+mrna_TNFRSF10B
+mrna_RRM1
+mrna_CTCF
+mrna_LTBP2
+mrna_PALLD
+mrna_CD247
+mrna_SIRT1
+mrna_CDC25C
+mrna_PRMT1
+mrna_XRCC4
+mrna_NUS1

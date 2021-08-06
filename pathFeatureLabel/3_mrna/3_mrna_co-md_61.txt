@@ -1,0 +1,15 @@
+mrna_MAD2L2
+mrna_FANCD2
+mrna_EWSR1
+mrna_RAD52
+mrna_INVS
+mrna_DCLRE1C
+mrna_SMARCB1
+mrna_NOX4
+mrna_ROCK1
+mrna_CREBBP
+mrna_HDAC2
+mrna_EDNRB
+mrna_FMR1
+mrna_SF3B1
+mrna_LAMP1

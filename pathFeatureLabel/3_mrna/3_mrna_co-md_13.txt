@@ -1,0 +1,17 @@
+mrna_MAP2K7
+mrna_SKIV2L
+mrna_GSK3B
+mrna_CYCS
+mrna_LAMB1
+mrna_RPS26
+mrna_GPC3
+mrna_TARDBP
+mrna_ATAD2
+mrna_BIRC3
+mrna_RPS6KA3
+mrna_STX1A
+mrna_AOC3
+mrna_CEP120
+mrna_S100A2
+mrna_RAD21
+mrna_INTS6

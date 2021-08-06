@@ -1,0 +1,12 @@
+cnv_CYP1A2
+cnv_KLK3
+cnv_IKZF1
+cnv_CACNB2
+cnv_GADD45A
+cnv_CCND2
+cnv_ARAF
+cnv_HSPB2
+cnv_MIR27B
+cnv_FANCI
+cnv_CACNA1C
+cnv_G6PC

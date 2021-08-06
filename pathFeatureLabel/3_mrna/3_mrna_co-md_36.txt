@@ -1,0 +1,16 @@
+mrna_ATP7A
+mrna_UBC
+mrna_SMAD4
+mrna_TSC2
+mrna_RPGRIP1L
+mrna_RYR2
+mrna_HAVCR2
+mrna_BRIP1
+mrna_TIA1
+mrna_MVK
+mrna_IGHMBP2
+mrna_LZTR1
+mrna_SRGAP1
+mrna_CREB1
+mrna_VAV3
+mrna_E2F4
