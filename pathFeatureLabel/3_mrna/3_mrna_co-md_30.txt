@@ -1,5 +1,0 @@
-mrna_EVC
-mrna_BCL2L1
-mrna_CDC20
-mrna_DCK
-mrna_CDK6

@@ -1,4 +1,0 @@
-mrna_TRAF6
-mrna_LAMP2
-mrna_USP33
-mrna_YY1

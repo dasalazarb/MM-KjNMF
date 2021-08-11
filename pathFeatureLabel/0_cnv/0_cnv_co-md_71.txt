@@ -1,7 +1,0 @@
-cnv_CHAT
-cnv_BCR
-cnv_LRP5
-cnv_PCAT6
-cnv_MSMB
-cnv_ANXA3
-cnv_ABCC1

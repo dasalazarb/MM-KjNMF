@@ -21,22 +21,12 @@ nombre <- commandArgs(trailingOnly = TRUE)
 
 pathFeatureLabel <- strsplit(nombre, "__")[[1]][1]
 nameDotPlot <- strsplit(nombre, "__")[[1]][2]
-# pathFeatureLabel <- "C:/Users/da.salazarb/Downloads/Nueva_carpeta/mmjnmf/pathFeatureLabel"
-# nameDotPlot <- "nameDotPlot"
-
-# central_path <- "D:/"
-# complete_enrichment <- FALSE
-
-# if (identical(character(0), dir("D:/pathFeatureLabel"))) {
-#   central_path <- "E:"
-# } else {
-#   central_path <- "D:"
-# }
+iteration_number <- strsplit(nombre, "__")[[1]][3]
+# pathFeatureLabel <- "C:/Users/da.salazarb/Downloads/Nueva_carpeta/kmmjnmf/pathFeatureLabel"
 
 # _________________________________________ #
 #### ........... Co-modulos ........... ####
 # ________________________________________ #
-#path <- "C:/Users/da.salazarb/Google Drive (dasalazarb@unal.edu.co)/Co-modules/mrna/"
 ## detect the dir of mrna e.g. 2_mrna
 dir_mrna <- dir(pathFeatureLabel)[grepl("^[0-9]*\\_mrna$",dir(pathFeatureLabel))]
 path <- paste0(pathFeatureLabel, "/", dir_mrna)
@@ -105,10 +95,6 @@ jpeg(filename = paste0(pathFeatureLabel,"/co-mod_R_plots/", nameDotPlot, "_enric
 dotplot(ck2,font.size=12)
 dev.off()
 
-#jpeg(filename = paste0(pathFeatureLabel,"/co-mod_R_plots/Supplementary_Figure_F3.jpg"), width = 25, height = 15, units = "in", res = 350)
-#dotplot(ck2,font.size=12)
-#dev.off()
-
 ## guardar records_mrna.csv, se usa en 16_clinical_info_TCGABiolinks.R y en 22_Similarity_ccle_tcga_clusters.R
 ck2 <- as.data.frame(ck2)
 
@@ -117,4 +103,50 @@ for (i in 1:length(ck2$geneID)) {
 }
 
 write.table(ck2, paste0(pathFeatureLabel,"/co-mod_records/record_mrna.csv"), sep=",", row.names = FALSE)
-#write.table(ck2, paste0(pathFeatureLabel,"/co-md_records/Supplementary_File_S4.csv"), sep=",", row.names = FALSE)
+
+####
+# ck2 <- read.csv(paste0(pathFeatureLabel,"/co-mod_records/record_mrna.csv")); dim(ck2)
+
+if (identical(FALSE, file.exists(paste0(pathFeatureLabel,"/co-mod_records/K", length(archivos_),".csv")))) { 
+  ck2.temp <- ck2 %>% 
+    dplyr::select(ID, Description, GeneRatio, Count) %>% 
+    dplyr::mutate(GeneRatio = sapply(GeneRatio, function(x) eval(parse(text=x)))) %>% 
+    dplyr::bind_cols(count.terms=1) %>% 
+    dplyr::group_by(ID, Description) %>% 
+    dplyr::summarise(dplyr::across(c("GeneRatio", "Count"), list(mean=mean)), count.terms_sum = sum(count.terms)) %>% 
+    dplyr::ungroup() %>% 
+    dplyr::mutate(iterNum_count.terms = paste0(iteration_number, ".",count.terms_sum, "_")) %>% 
+    # dplyr::mutate(iterNum_count.terms = paste0(iteration_number, "_",count.terms_sum,",",round(GeneRatio_mean,2),",",round(Count_mean,2),"__")) %>% 
+    dplyr::rename(GeneRatio=GeneRatio_mean, Count=Count_mean, count.terms=count.terms_sum)
+  
+  write.table(ck2.temp, paste0(pathFeatureLabel,"/co-mod_records/K", length(archivos_),".csv"), sep=",", row.names = FALSE)
+  
+} else {
+  
+  ck2.temp1 <- read.csv(paste0(pathFeatureLabel,"/co-mod_records/K", length(archivos_),".csv")); head(ck2.temp1, 10)
+
+  ####### actual ck2 -> generate iterNum_count.terms
+  ck2.temp <- ck2 %>% 
+    dplyr::select(ID, Description, GeneRatio, Count) %>% 
+    dplyr::mutate(GeneRatio = sapply(GeneRatio, function(x) eval(parse(text=x)))) %>% 
+    dplyr::bind_cols(count.terms=1) %>% 
+    dplyr::group_by(ID, Description) %>% 
+    dplyr::summarise(dplyr::across(c("GeneRatio", "Count"), list(mean=mean)), count.terms_sum = sum(count.terms)) %>% 
+    dplyr::ungroup() %>% 
+    dplyr::mutate(iterNum_count.terms = paste0(iteration_number, ".",count.terms_sum, "_")) %>% 
+    # dplyr::mutate(iterNum_count.terms = paste0(iteration_number, "_",count.terms_sum,",",round(GeneRatio_mean,2),",",round(Count_mean,2),"__")) %>% 
+    dplyr::rename(GeneRatio=GeneRatio_mean, Count=Count_mean, count.terms=count.terms_sum)
+  head(ck2.temp)
+  
+  #### update ck2 with previous info
+  ck2.ID <- ck2.temp1 %>% 
+    dplyr::bind_rows(ck2.temp) %>% 
+    dplyr::group_by(ID, Description) %>% 
+    dplyr::summarise(dplyr::across(c("GeneRatio", "Count"), list(mean=mean)), count.terms_sum = sum(count.terms), 
+                     iterNum_count.terms = paste(iterNum_count.terms, collapse="")) %>% 
+    dplyr::ungroup() %>% 
+    dplyr::rename(GeneRatio=GeneRatio_mean, Count=Count_mean, count.terms=count.terms_sum)
+  head(ck2.ID)
+  
+  write.table(ck2.ID, paste0(pathFeatureLabel,"/co-mod_records/K", length(archivos_),".csv"), sep=",", row.names = FALSE)
+}

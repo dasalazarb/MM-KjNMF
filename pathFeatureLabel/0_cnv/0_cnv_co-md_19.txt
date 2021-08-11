@@ -1,9 +1,0 @@
-cnv_IL12A
-cnv_TP73
-cnv_TRAF2
-cnv_MIR200C
-cnv_ASCL1
-cnv_PIN1
-cnv_CXCR5
-cnv_DDX3X
-cnv_BAX

@@ -1,6 +1,0 @@
-mirna_HSA-MIR-944
-mirna_HSA-MIR-1913
-mirna_HSA-MIR-506
-mirna_HSA-MIR-1912
-mirna_HSA-MIR-122
-mirna_HSA-MIR-101

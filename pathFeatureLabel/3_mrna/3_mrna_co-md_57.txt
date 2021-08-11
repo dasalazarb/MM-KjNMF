@@ -1,2 +1,0 @@
-mrna_DPYD
-mrna_TP53BP2

@@ -1,9 +1,0 @@
-cnv_DTX1
-cnv_SMC3
-cnv_DISP1
-cnv_TF
-cnv_SAT1
-cnv_SNHG20
-cnv_ST14
-cnv_DMTF1
-cnv_IL15

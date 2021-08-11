@@ -1,4 +1,0 @@
-mirna_HSA-MIR-30E
-mirna_HSA-MIR-224
-mirna_HSA-MIR-301A
-mirna_HSA-MIR-577

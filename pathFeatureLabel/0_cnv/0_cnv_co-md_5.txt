@@ -1,7 +1,0 @@
-cnv_LAMP1
-cnv_MIR181C
-cnv_MIR130A
-cnv_PIP
-cnv_TSC2
-cnv_ANXA1
-cnv_PRKCE

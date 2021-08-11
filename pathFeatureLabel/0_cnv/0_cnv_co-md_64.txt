@@ -1,5 +1,0 @@
-cnv_ITGA6
-cnv_TAF15
-cnv_CTNNA1
-cnv_ALPL
-cnv_CCDC40

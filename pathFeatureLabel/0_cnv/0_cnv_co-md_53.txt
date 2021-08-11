@@ -1,2 +1,0 @@
-cnv_RAP1A
-cnv_SOD1

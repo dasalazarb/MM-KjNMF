@@ -1,4 +1,0 @@
-cnv_RBM10
-cnv_RPS6KB1
-cnv_SLC6A2
-cnv_TCF7L1

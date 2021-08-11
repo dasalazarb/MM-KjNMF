@@ -1,7 +1,0 @@
-mrna_ATP2C1
-mrna_PSMA6
-mrna_TNFRSF4
-mrna_SDCCAG8
-mrna_CLEC7A
-mrna_OFD1
-mrna_LZTS1

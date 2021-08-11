@@ -1,7 +1,0 @@
-cnv_MIR491
-cnv_CLDN18
-cnv_AVPR2
-cnv_ING3
-cnv_NR4A3
-cnv_TMEM216
-cnv_MIR26B

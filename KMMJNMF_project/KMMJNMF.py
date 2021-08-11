@@ -304,16 +304,19 @@ def kmmjnmf(merged,param):
             best_repeat = index;
                 
         ## Get co-clusters?
-        _, _, connectivity_matrix,_,_ = jNMF_module(H,1.5, path, featureLabel, False, False, "H_first_second_max", False,nameDotPlot);
+        _, _, connectivity_matrix,_,_ = jNMF_module(H,1.5, path, featureLabel, False, False, "H_first_second_max", False,nameDotPlot,merged);
         
-        if perfil in list(connectivity_matrix.keys()):
-            for key, val in connectivity_matrix[perfil].items():
-                consensus_matrix[perfil][key] += val
-            
+        for perfil, value in profile2use.items():
+            if value.shape[1] > 1000:
+                pass
+            else:
+                for key, val in connectivity_matrix[perfil].items():
+                    consensus_matrix[perfil][key] += val
+        
         ## SARA
-        # -------------------------------------------------------------------------- #
-        #### ........... TRAIN SECTION ........... ####
-        # -------------------------------------------------------------------------- #    
+        # ------------------------------------------- #
+        #### ........... TEST SECTION ........... ####
+        # ------------------------------------------- #    
         A_learned=A.copy()
         H_learned=H.copy()    
         AUC_H,stop_control_test, delta_control_test=testSection(index,A_learned,H_learned,ccle,ccle_test,tcga,tcga_test,R_record,theta_record,param,miss_profile,newNamesProfiles,projects)
@@ -355,7 +358,7 @@ def kmmjnmf(merged,param):
     # 0_drug/0_drug_comodX.txt
     # """
     #best_H=True & Enrichment=True. Read comodules from  2_mrna and returns number of enriched comodules. Save this info in co-md_records as record_mrna.csv
-    comodule,comodule_count,_,cod_stats,cod_stats2 = jNMF_module(best_H, 1.5, path, featureLabel, True, True, "H_first_second_max", enrichment,nameDotPlot);
+    comodule,comodule_count,_,cod_stats,cod_stats2 = jNMF_module(best_H, 1.5, path, featureLabel, True, True, "H_first_second_max", enrichment,nameDotPlot,merged);
 
     # -------------------------------------------------------------------------- #
     #### ........... Average AUC ........... ####

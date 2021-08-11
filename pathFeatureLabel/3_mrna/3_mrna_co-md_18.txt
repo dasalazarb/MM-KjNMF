@@ -1,8 +1,0 @@
-mrna_FURIN
-mrna_ATRX
-mrna_ERCC1
-mrna_EPOR
-mrna_MIR22HG
-mrna_PGM3
-mrna_FER
-mrna_EIF2AK2

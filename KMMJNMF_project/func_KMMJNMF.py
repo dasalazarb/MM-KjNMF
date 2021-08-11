@@ -321,7 +321,7 @@ def compute_actualize_H_record(H_record, Hsumtheta_record, sumHRt_record,AtKAH,K
         
     return H_record,factorH
 
-def jNMF_module(H,t,path,featureLabel, print_savePath,is_best_H,method_clustering,enrichment,nameDotPlot):
+def jNMF_module(H,t,path,featureLabel, print_savePath,is_best_H,method_clustering,enrichment,nameDotPlot,merged):
     from itertools import product
     from collections import defaultdict 
     comodule = defaultdict(lambda: defaultdict(dict));
@@ -453,7 +453,7 @@ def jNMF_module(H,t,path,featureLabel, print_savePath,is_best_H,method_clusterin
                  adicional_segundo = np.where(i == H_maximos_second[perfil]);
                  comodule[perfil]['co-md_'+str(i)][0] = np.append(comodule[perfil]['co-md_'+str(i)][0], adicional_segundo[0]);
                  #diccionario, para cada omica muestra los K comodulos con el # de features que pertenecen a dichos comodulos 
-                 comodule_count[perfil]['co-md_'+str(i)] = len(comodule[perfil]['co-md_'+str(i)][0])
+                 comodule_count[perfil]['co-md_'+str(i)] = len(comodule[perfil]['co-md_'+str(i)][0]);
                  
                  ## Connectivity matrix.
                  #product->cartesian product from the given iterator. Parejas de features en el mismo comodulo (incluye i=j) (38,38),(38,50),.. etc
@@ -475,13 +475,19 @@ def jNMF_module(H,t,path,featureLabel, print_savePath,is_best_H,method_clusterin
                 # command = 'C:/Program Files/R/R-3.6.2/bin/Rscript.exe'
                 # command = 'C:/Users/da.salazarb/Documents/R/R-3.6.3/bin/Rscript.exe'
                 #path2script = '--vanilla 00_gene-gene_BioGRID.R'
-                                
+                
+                if os.path.isfile(path+"/co-mod_tabulated_results/Tabulated_results_MM-KjNMF_for_"+str(merged.listaPerfiles)+".csv") == False:
+                    iteration_number=str(1)
+                else:
+                    iteration_number = pd.read_csv(path+"/co-mod_tabulated_results/Tabulated_results_MM-KjNMF_for_"+str(merged.listaPerfiles)+".csv")
+                    iteration_number = str(iteration_number.shape[0])
+                    
                 command='C:/Program Files/R/R-4.0.5/bin/Rscript.exe'
                                 
                 scriptName = "13_co-module_interpretation.R"
                 path2script = path + "/co-mod_R_scripts/" + scriptName
                 
-                cmd = [command, path2script] + [path+"__"+nameDotPlot] #cmd = [command, path2script] + args. Ver pagina rPubs.
+                cmd = [command, path2script] + [path+"__"+nameDotPlot+"__"+iteration_number] #cmd = [command, path2script] + args. Ver pagina rPubs.
                 x = subprocess.Popen(cmd).wait()
                 if x == 0:
                     print("    * All fine with " + scriptName + '\n')

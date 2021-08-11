@@ -1,2 +1,0 @@
-cnv_STIM1
-cnv_RB1

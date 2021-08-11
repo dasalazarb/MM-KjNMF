@@ -1,7 +1,0 @@
-cnv_CD38
-cnv_HMOX1
-cnv_SCGB3A2
-cnv_SMAD6
-cnv_ITGAX
-cnv_CD79A
-cnv_MCM4

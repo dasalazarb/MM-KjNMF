@@ -1,7 +1,0 @@
-cnv_MGMT
-cnv_LMX1B
-cnv_DLGAP2
-cnv_NPY
-cnv_IGFBP1
-cnv_RBBP4
-cnv_CDC42

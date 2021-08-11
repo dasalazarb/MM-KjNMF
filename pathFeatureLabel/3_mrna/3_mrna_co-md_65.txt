@@ -1,5 +1,0 @@
-mrna_MSX1
-mrna_CCDC39
-mrna_DYNC2LI1
-mrna_NRP1
-mrna_MRC2

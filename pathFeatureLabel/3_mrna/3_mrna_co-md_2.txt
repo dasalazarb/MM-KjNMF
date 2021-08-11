@@ -1,6 +1,0 @@
-mrna_IRF1
-mrna_PES1
-mrna_TNFSF12
-mrna_POLE
-mrna_CTNNB1
-mrna_LIG1

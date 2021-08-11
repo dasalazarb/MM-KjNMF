@@ -1,7 +1,0 @@
-mrna_JAK3
-mrna_ETV6
-mrna_LRP5
-mrna_CYSLTR2
-mrna_TP53
-mrna_TBK1
-mrna_TYMP

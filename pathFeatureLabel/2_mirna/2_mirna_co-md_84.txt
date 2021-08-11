@@ -1,3 +1,0 @@
-mirna_HSA-MIR-659
-mirna_HSA-LET-7B
-mirna_HSA-MIR-564

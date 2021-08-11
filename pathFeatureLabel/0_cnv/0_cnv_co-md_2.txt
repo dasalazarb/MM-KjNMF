@@ -1,7 +1,0 @@
-cnv_RALBP1
-cnv_PSMA4
-cnv_NFKB1
-cnv_SQSTM1
-cnv_SOX9
-cnv_CD44
-cnv_FGF9

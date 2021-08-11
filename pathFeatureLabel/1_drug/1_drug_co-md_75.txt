@@ -1,2 +1,0 @@
-drug_DOXORUBICIN_1.024
-drug_DMOG_4000

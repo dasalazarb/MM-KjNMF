@@ -1,9 +1,0 @@
-cnv_CBR1
-cnv_CXCL8
-cnv_MIR92A1
-cnv_MIR17
-cnv_SKIV2L
-cnv_RHOBTB2
-cnv_SH2D1A
-cnv_HSPA1A
-cnv_AGRN

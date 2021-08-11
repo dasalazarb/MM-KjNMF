@@ -1,6 +1,0 @@
-mrna_FOXO1
-mrna_GHR
-mrna_NPM1
-mrna_DNAH7
-mrna_BECN1
-mrna_AKT1

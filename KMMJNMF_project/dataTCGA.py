@@ -116,14 +116,14 @@ class dataTCGA:
         for i in range(0,len(perfiles.keys())):
             featureLabel.extend(perfiles[list(perfiles.keys())[i]].infoFeatures["columns"])
             
-        with open(pathFeatureLabel+'/co-mod_records/featureLabel'+prefijo+'.txt', 'w') as filehandle:
+        with open(pathFeatureLabel+'/pathFeatureLabel/co-mod_records/featureLabel'+prefijo+'.txt', 'w') as filehandle:
             for listitem in featureLabel:
                 filehandle.write('%s\n' % listitem)
         return featureLabel
     
     @staticmethod
     def saveBarcode_projects(barcodes,pathFeatureLabel,project): ## guarda los identificadores de los pacientes TCGA
-        with open(pathFeatureLabel+'/co-mod_records/barcodes_'+project+'.txt', 'w') as filehandle:
+        with open(pathFeatureLabel+'/pathFeatureLabel/co-mod_records/barcodes_'+project+'.txt', 'w') as filehandle:
             for listitem in barcodes:
                 filehandle.write('%s\n' % listitem)
     

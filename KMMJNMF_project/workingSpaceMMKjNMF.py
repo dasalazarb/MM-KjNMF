@@ -28,12 +28,12 @@ elif len(arguments) == 1:
     print("")
     print("")
     path = arguments[0]
-    param_grid = {'K': [90], 
-                  'r1': [0.5], 'r2': [0.5],
-                  'L1': [0.001,10], 'L2': [0.001,10], 
-                  'd1': [0.001,1], 'o1': [0.001,1], 'o2': [0.001,1],
-                  'sigma_ccle': [2], 'sigma_tcga': [2],
-                  'sigma_ccle_diff': [2], 'sigma_tcga_diff': [2]
+    param_grid = {'K': [30,60,90], 
+                  'r1': [0.01], 'r2': [0.01],
+                  'L1': [0,10], 'L2': [0,10], 
+                  'd1': [0,1], 'o1': [0.001,0.01], 'o2': [0.001,0.01],
+                  'sigma_ccle': [5], 'sigma_tcga': [5],
+                  'sigma_ccle_diff': [5], 'sigma_tcga_diff': [5]
                   };
 elif len(arguments) > 1 and len(arguments) < 11:
     print("---------------------------------------------------------------------------------------------")
