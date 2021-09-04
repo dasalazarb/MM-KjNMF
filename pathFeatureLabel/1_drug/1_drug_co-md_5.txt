@@ -1,0 +1,10 @@
+drug_WHI-P97_10.24
+drug_CI-1040_10
+drug_KIN001-236_10.24
+drug_BEXAROTENE_8
+drug_VX-702_2
+drug_PD0325901_2
+drug_AVAGACESTAT_5
+drug_NILOTINIB_2
+drug_VX-11E_5.12
+drug_JW-7-24-1_10.24

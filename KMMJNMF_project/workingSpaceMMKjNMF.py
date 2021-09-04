@@ -28,12 +28,12 @@ elif len(arguments) == 1:
     print("")
     print("")
     path = arguments[0]
-    param_grid = {'K': [30,60,90], 
-                  'r1': [0.01], 'r2': [0.01],
-                  'L1': [0,10], 'L2': [0,10], 
-                  'd1': [0,1], 'o1': [0.001,0.01], 'o2': [0.001,0.01],
-                  'sigma_ccle': [5], 'sigma_tcga': [5],
-                  'sigma_ccle_diff': [5], 'sigma_tcga_diff': [5]
+    param_grid = {'K': [20],
+                  'r1': [5e-2], 'r2': [1e-3],
+                  'L1': [10], 'L2': [10],
+                  'd1': [1e-3], 'o1': [1e-7], 'o2': [1e-7],
+                  'sigma_ccle': [1], 'sigma_tcga': [1],
+                  'sigma_ccle_diff': [2], 'sigma_tcga_diff': [2]
                   };
 elif len(arguments) > 1 and len(arguments) < 11:
     print("---------------------------------------------------------------------------------------------")
@@ -47,7 +47,7 @@ elif len(arguments) == 11:
     print("")
     print("")
     path = arguments[0]
-    param_grid = {'K': [int(item) for item in arguments[1].strip('][').split(',')], 
+    param_grid = {'K': [int(item) for item in arguments[1].strip('][').split(',')],
                   'r1': [float(item) for item in arguments[2].strip('][').split(',')], 'r2': [float(item) for item in arguments[3].strip('][').split(',')],
                   'L1': [float(item) for item in arguments[4].strip('][').split(',')], 'L2': [float(item) for item in arguments[5].strip('][').split(',')], 
                   'd1': [float(item) for item in arguments[6].strip('][').split(',')],
@@ -70,7 +70,7 @@ np.random.seed(13)
 
 grid = ParameterGrid(param_grid); #len(grid)
 
-for params in grid: 
+for params in grid:
     print("\n                ************************************************* ")
     print("                *                                               * ")
     print('                                 '+' i = '+str(numero+1)+' of '+str(len(grid))+'                            ')
@@ -124,8 +124,8 @@ for params in grid:
 
     now = datetime.now()
     tabla.loc[numero] = [now, param['K'], param['r1'], param['L1'], param['L2'], param['r2'], param['d1'],param['o1'],param['o2'],param['sigma_ccle'],
-                         param['sigma_tcga'],param['sigma_ccle_diff'],param['sigma_tcga_diff'],param['repeat'], 
-                         paramResultKernels['best_stop_control'][0][len(np.where(paramResultKernels['best_stop_control'] > 0)[1])-1], 
+                         param['sigma_tcga'],param['sigma_ccle_diff'],param['sigma_tcga_diff'],param['repeat'],
+                         paramResultKernels['best_stop_control'][0][len(np.where(paramResultKernels['best_stop_control'] > 0)[1])-1],
                          paramResultKernels['best_delta_control'][0][len(np.where(paramResultKernels['best_delta_control'] > 0)[1])-1], paramResultKernels['FO'],
                          paramResultKernels['weightedAverage']] + parcial_kernels +[v for v in paramResultKernels['AUC_H_average'].values()]+raw_cod_metrics_kernel+cod_metrics_kernel;
     

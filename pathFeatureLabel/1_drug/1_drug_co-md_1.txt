@@ -1,0 +1,3 @@
+drug_AR-42_5.12
+drug_STF-62247_10.24
+drug_MPS-1-IN-1_20

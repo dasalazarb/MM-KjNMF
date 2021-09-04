@@ -1,0 +1,13 @@
+mirna_HSA-MIR-381
+mirna_HSA-MIR-18B
+mirna_HSA-MIR-584
+mirna_HSA-MIR-2116
+mirna_HSA-MIR-30A
+mirna_HSA-MIR-21
+mirna_HSA-MIR-192
+mirna_HSA-MIR-412
+mirna_HSA-MIR-548J
+mirna_HSA-MIR-1283
+mirna_HSA-MIR-93
+mirna_HSA-MIR-379
+mirna_HSA-MIR-134

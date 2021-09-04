@@ -482,7 +482,7 @@ def jNMF_module(H,t,path,featureLabel, print_savePath,is_best_H,method_clusterin
                     iteration_number = pd.read_csv(path+"/co-mod_tabulated_results/Tabulated_results_MM-KjNMF_for_"+str(merged.listaPerfiles)+".csv")
                     iteration_number = str(iteration_number.shape[0])
                     
-                command='C:/Program Files/R/R-4.0.5/bin/Rscript.exe'
+                command='C:/Program Files/R/R-4.1.1/bin/Rscript.exe'
                                 
                 scriptName = "13_co-module_interpretation.R"
                 path2script = path + "/co-mod_R_scripts/" + scriptName
