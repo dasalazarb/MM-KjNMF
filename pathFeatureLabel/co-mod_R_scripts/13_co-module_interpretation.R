@@ -92,19 +92,20 @@ OrgDb <- hub[[quer$ah_id[grep("OrgDb",quer$rdataclass)]]]
 # ck1 <- compareCluster(geneCluster = gcSample, fun = "enrichGO", OrgDb=OrgDb)
 ck2 <- compareCluster(geneCluster = gcSample, fun = "enrichKEGG", pvalueCutoff=0.05)
 
-terms2remove <- c("Human immunodeficiency virus 1 infection", "Yersinia infection", "Hepatitis B", "Cushing syndrome", "Neurotrophin signaling pathway", 
-                  "Osteoclast differentiation", "Human T-cell leukemia virus 1 infection", "Legionellosis", "Epstein-Barr virus infection", "Prolactin signaling pathway", 
-                  "Measles", "Fluid shear stress and atherosclerosis", "Leishmaniasis", "Longevity regulating pathway", "Viral myocarditis", "Lipid and atherosclerosis", 
-                  "Malaria", "Hepatitis C", "Kaposi sarcoma-associated herpesvirus infection", "Tuberculosis", "Shigellosis", "Coronavirus disease - COVID-19", "Oocyte meiosis", 
-                  "Viral carcinogenesis", "Diabetic cardiomyopathy", "Intestinal immune network for IgA production", "Insulin resistance", "Axon guidance", "Alzheimer disease", 
-                  "Epithelial cell signaling in Helicobacter pylori infection", "Chagas disease","Pertussis", "Pathogenic Escherichia coli infection", 
-                  "Non-alcoholic fatty liver disease", "Human papillomavirus infection", "Longevity regulating pathway - multiple species", "Salmonella infection", 
-                  "Influenza A", "Rheumatoid arthritis", "Herpes simplex virus 1 infection", "Amoebiasis", "African trypanosomiasis", "Type II diabetes mellitus", 
-                  "Viral protein interaction with cytokine and cytokine receptor", "Vascular smooth muscle contraction", "Homologous recombination", 
-                  "Bacterial invasion of epithelial cells", "Allograft rejection", "Parathyroid hormone synthesis, secretion and action", "Apoptosis - multiple species", 
-                  "Insulin signaling pathway", "Human cytomegalovirus infection", "Platelet activation", "Toxoplasmosis")
+# terms2remove <- c("Human immunodeficiency virus 1 infection", "Yersinia infection", "Hepatitis B", "Cushing syndrome", "Neurotrophin signaling pathway", 
+#                   "Osteoclast differentiation", "Human T-cell leukemia virus 1 infection", "Legionellosis", "Epstein-Barr virus infection", "Prolactin signaling pathway", 
+#                   "Measles", "Fluid shear stress and atherosclerosis", "Leishmaniasis", "Longevity regulating pathway", "Viral myocarditis", "Lipid and atherosclerosis", 
+#                   "Malaria", "Hepatitis C", "Kaposi sarcoma-associated herpesvirus infection", "Tuberculosis", "Shigellosis", "Coronavirus disease - COVID-19", "Oocyte meiosis", 
+#                   "Viral carcinogenesis", "Diabetic cardiomyopathy", "Intestinal immune network for IgA production", "Insulin resistance", "Axon guidance", "Alzheimer disease", 
+#                   "Epithelial cell signaling in Helicobacter pylori infection", "Chagas disease","Pertussis", "Pathogenic Escherichia coli infection", 
+#                   "Non-alcoholic fatty liver disease", "Human papillomavirus infection", "Longevity regulating pathway - multiple species", "Salmonella infection", 
+#                   "Influenza A", "Rheumatoid arthritis", "Herpes simplex virus 1 infection", "Amoebiasis", "African trypanosomiasis", "Type II diabetes mellitus", 
+#                   "Viral protein interaction with cytokine and cytokine receptor", "Vascular smooth muscle contraction", "Homologous recombination", 
+#                   "Bacterial invasion of epithelial cells", "Allograft rejection", "Parathyroid hormone synthesis, secretion and action", "Apoptosis - multiple species", 
+#                   "Insulin signaling pathway", "Human cytomegalovirus infection", "Platelet activation", "Toxoplasmosis")
+# ck2@compareClusterResult <- ck2@compareClusterResult[!ck2@compareClusterResult$Description %in% terms2remove,]
 
-pdf(file = paste0(pathFeatureLabel,"/co-mod_R_plots/", nameDotPlot, "_enrichKEGG.pdf"), width = 20, height = 20)
+pdf(file = paste0(pathFeatureLabel,"/co-mod_R_plots/", nameDotPlot, "_enrichKEGG.pdf"), width = 20, height = 18)
 # jpeg(filename = paste0(pathFeatureLabel,"/co-mod_R_plots/", nameDotPlot, "_enrichKEGG.jpg"), width = 20, height = 15, units = "in", res = 350)
 dotplot(ck2,font.size=12)
 dev.off()

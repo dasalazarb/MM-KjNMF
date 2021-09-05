@@ -46,8 +46,8 @@ class fusion_CCLE_TCGA(dataCCLE.dataCCLE, dataTCGA.dataTCGA):
         project_profile = os.listdir(self.path+"INPUT DATA");
         
         self.project1 = sorted(list(set([p[0:p.find("_")] for p in project_profile])))[0]; self.project2 = sorted(list(set([p[0:p.find("_")] for p in project_profile])))[1];
-        profiles_project1 = list(set([p.replace(".csv", "")[p.replace(".csv", "").find("_")+1:] for p in project_profile if self.project1 in p]));
-        profiles_project2 = list(set([p.replace(".csv", "")[p.replace(".csv", "").find("_")+1:] for p in project_profile if self.project2 in p]));
+        profiles_project1 = sorted(list(set([p.replace(".csv", "")[p.replace(".csv", "").find("_")+1:] for p in project_profile if self.project1 in p])));
+        profiles_project2 = sorted(list(set([p.replace(".csv", "")[p.replace(".csv", "").find("_")+1:] for p in project_profile if self.project2 in p])));
         
         if len(profiles_project1) > len(profiles_project2):
             ccle_tcga = "high"
