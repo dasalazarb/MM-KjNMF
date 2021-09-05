@@ -1,3 +1,7 @@
-drug_CX-5461_10.24
-drug_SB52334_20
-drug_QS11_10.24
+drug_QL-XI-92_10.24
+drug_KIN001-244_20
+drug_EHT-1864_10
+drug_XMD13-2_10.24
+drug_I-BET-762_20
+drug_AKT INHIBITOR VIII_2.56
+drug_THZ-2-102-1_20

@@ -1,7 +1,5 @@
-mirna_HSA-MIR-29A
-mirna_HSA-LET-7B
-mirna_HSA-MIR-429
-mirna_HSA-MIR-100
-mirna_HSA-MIR-130A
-mirna_HSA-LET-7I
-mirna_HSA-MIR-496
+mirna_HSA-MIR-889
+mirna_HSA-MIR-410
+mirna_HSA-MIR-487B
+mirna_HSA-MIR-543
+mirna_HSA-MIR-376A

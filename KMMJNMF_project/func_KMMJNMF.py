@@ -481,20 +481,26 @@ def jNMF_module(H,t,path,featureLabel, print_savePath,is_best_H,method_clusterin
                 else:
                     iteration_number = pd.read_csv(path+"/co-mod_tabulated_results/Tabulated_results_MM-KjNMF_for_"+str(merged.listaPerfiles)+".csv")
                     iteration_number = str(iteration_number.shape[0])
-                    
-                command='C:/Program Files/R/R-4.1.1/bin/Rscript.exe'
-                                
-                scriptName = "13_co-module_interpretation.R"
-                path2script = path + "/co-mod_R_scripts/" + scriptName
                 
-                cmd = [command, path2script] + [path+"__"+nameDotPlot+"__"+iteration_number] #cmd = [command, path2script] + args. Ver pagina rPubs.
-                x = subprocess.Popen(cmd).wait()
-                if x == 0:
-                    print("    * All fine with " + scriptName + '\n')
-                else:
-                    print("    * Something is wrong with " + scriptName + '\n')
+                try: 
+                    command = merged.command
+                    # command='C:/Program Files/R/R-4.1.1/bin/Rscript.exe'
+                                    
+                    scriptName = "13_co-module_interpretation.R"
+                    path2script = path + "/co-mod_R_scripts/" + scriptName
                     
-                record_mrna = pd.read_csv(path+"/co-mod_records/record_mrna.csv");
+                    cmd = [command, path2script] + [path+"__"+nameDotPlot+"__"+iteration_number] #cmd = [command, path2script] + args. Ver pagina rPubs.
+                    x = subprocess.Popen(cmd).wait()
+                    if x == 0:
+                        print("    * All fine with " + scriptName + '\n')
+                    else:
+                        print("    * Something is wrong with " + scriptName + '\n')
+                        
+                    record_mrna = pd.read_csv(path+"/co-mod_records/record_mrna.csv");
+                    
+                except:
+                    record_mrna = pd.DataFrame({'' : []})
+                    
                 if record_mrna.shape[0] == 0:
                     BioScore=0
                     codEnrich_over_codTotal=0; T4=0; saraPenalization=0; geneRatio_avg=0; geneRatio_sd=0;

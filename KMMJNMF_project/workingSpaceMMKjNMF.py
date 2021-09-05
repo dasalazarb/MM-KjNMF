@@ -7,7 +7,8 @@ Created on Thu Nov 28 16:40:08 2019
 # %% In[*** Loading packages, data and parameters + MMjNMF algorithm ***]
 # %reset_selective -f "^(?!merged)"
 import os
-import sys
+# import sys
+import argparse
 import numpy as np
 import pandas as pd
 from csv import writer
@@ -15,50 +16,65 @@ import fusion_CCLE_TCGA
 from datetime import datetime
 from sklearn.model_selection import ParameterGrid
 # %%
-arguments = sys.argv[1:];
-if len(arguments) == 0:
+parser = argparse.ArgumentParser()
+parser.add_argument("--Rpath", help="path/to/Rscript.exe", type=str)
+parser.add_argument("--K", help="range of low-rank matrices", type=list, default=[None])
+parser.add_argument("--r1", help="penalization on ||phi(X)A_x||^2_F", type=list, default=[None])
+parser.add_argument("--r2", help="penalization on ||phi(Y)A_y||^2_F", type=list, default=[None])
+parser.add_argument("--L1", help="penalization on Theta constraints", type=list, default=[None])
+parser.add_argument("--L2", help="penalization on R constratins", type=list, default=[None])
+parser.add_argument("--d1", help="penalization on columns of H_I", type=list, default=[None])
+parser.add_argument("--o1", help="similarity between phi(X_I)A_x and phi(X_J)A_x", type=list, default=[None])
+parser.add_argument("--o2", help="similarity between phi(Y_I)A_y and phi(Y_J)A_y", type=list, default=[None])
+parser.add_argument("--sigma", help="variance of the Gaussian kernel", type=list, default=[None])
+args = parser.parse_args()
+
+argumentos = list([args.K, args.r1, args.r2, args.L1, args.L2, args.d1, args.o1, args.o2, args.sigma])
+
+if args.Rpath == None:
     print("------------------------------------------------------------------------------------")
-    print("At least include the path/to/kmmjnmf, e.g., python workingSpaceOmic.py path/to/kmmjnmf")
-    print("")
+    print("At least include the path/to/Rscript.exe, e.g., python workingSpaceOmic.py --Rpath path/to/Rscript.exe")
+    print("If you do not want to run enrichment analysis use --Rpath ''")
     print("")
     # break
-elif len(arguments) == 1:
+elif args.Rpath != None and any(v[0] is None for v in argumentos):
     print("---------------------------------------------------------------------------------------------------")
-    print("It will run M&M-KjNMF with the default parameters, please check how to modify them in the README.md.")
+    print("It will run M&M-KjNMF with the default parameters, please check how to modify them in the README.md and --help option.")
     print("")
     print("")
-    path = arguments[0]
+    path = os.path.dirname(os.getcwd()).replace("\\", "/")+"/"
+    command = args.Rpath
     param_grid = {'K': [20],
-                  'r1': [5e-2], 'r2': [1e-3],
+                  'r1': [5e-3], 'r2': [1e-3],
                   'L1': [10], 'L2': [10],
                   'd1': [1e-3], 'o1': [1e-7], 'o2': [1e-7],
                   'sigma_ccle': [1], 'sigma_tcga': [1],
-                  'sigma_ccle_diff': [2], 'sigma_tcga_diff': [2]
+                  'sigma_ccle_diff': [1], 'sigma_tcga_diff': [1]
                   };
-elif len(arguments) > 1 and len(arguments) < 11:
-    print("---------------------------------------------------------------------------------------------")
-    print("There are seven parameters required to execute M&M-KjNMF: path/to/mmjnmf K r1 r2 L1 L2 d1")
-    print("For example include them as follows: path/to/mmjnmf [60] [3.5e-6] [3.5e-6] [10] [10] [3.5e-3] [1e-3] [1e-3] [1e-3] [1e-3]")
+    print(param_grid)
     print("")
     print("")
-elif len(arguments) == 11:
+elif args.Rpath != None and not any(v[0] is None for v in argumentos):
     print("--------------------------------------------------")
     print("Ok ... M&M-KjNMF will be executing in a moment ... ")
     print("")
     print("")
-    path = arguments[0]
-    param_grid = {'K': [int(item) for item in arguments[1].strip('][').split(',')],
-                  'r1': [float(item) for item in arguments[2].strip('][').split(',')], 'r2': [float(item) for item in arguments[3].strip('][').split(',')],
-                  'L1': [float(item) for item in arguments[4].strip('][').split(',')], 'L2': [float(item) for item in arguments[5].strip('][').split(',')], 
-                  'd1': [float(item) for item in arguments[6].strip('][').split(',')],
-                  'sigma_ccle': [float(item) for item in arguments[7].strip('][').split(',')], 'sigma_tcga': [float(item) for item in arguments[8].strip('][').split(',')],
-                  'sigma_ccle_diff': [float(item) for item in arguments[9].strip('][').split(',')], 'sigma_tcga_diff': [float(item) for item in arguments[10].strip('][').split(',')]
+    path = os.path.dirname(os.getcwd()).replace("\\", "/")+"/"
+    param_grid = {'K': args.K,
+                  'r1': args.r1, 'r2': args.r2,
+                  'L1': args.L1, 'L2': args.L2,
+                  'd1': args.d1,
+                  'sigma_ccle': args.sigma, 'sigma_tcga': args.sigma,
+                  'sigma_ccle_diff': args.sigma, 'sigma_tcga_diff': args.sigma
                   };
-#%%
-## profiles!!
-# path = os.path.dirname(os.getcwd()).replace("\\", "/")+"/"; #print(path)## e.g. path = "D:/"
+    print(param_grid)
+    print("")
+    print("")
+#%% Load the profiles!!
+# path = os.path.dirname(os.getcwd()).replace("\\", "/")+"/"; #print(path)## e.g. path = "D:/"; 
+# command = 'C:/Program Files/R/R-4.1.1/bin/Rscript.exe'
 merged = fusion_CCLE_TCGA.fusion_CCLE_TCGA(path);
-merged.loadData();
+merged.loadData(); merged.command = command;
 
 ## Constraints!!
 merged.constraints_theta_method(path);

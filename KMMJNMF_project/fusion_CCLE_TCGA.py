@@ -33,6 +33,7 @@ class fusion_CCLE_TCGA(dataCCLE.dataCCLE, dataTCGA.dataTCGA):
         self.index_test_tcga = dict()
         self.index_train_ccle = dict()
         self.index_test_ccle = dict()
+        self.command = ""
             
     def loadData(self):
         """
