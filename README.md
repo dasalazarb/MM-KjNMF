@@ -48,7 +48,7 @@ where _X_ are the input data, _A_ and _H_ are low-rank matrices, phi(.) is the m
 These matrices contain information to assemble groups or clusters of variables.
 
 ### Objective of the Tutorial
-This tutorial explains how to use the M&M-KjNMF method with user-supplied data or, if you prefer, with test data. Therefore, please read in the following sections how to organize your data structure before running the M&M-KjNMF method. You can also explore the test data set (located in _/INPUT DATA_ or _/CONSTRAINTS DATA_) to understand their structure better. Once you have organized your data and run the M&M-KjNMF method, you will obtain tabulated results, clusters of variables (e.g., genes).
+This tutorial explains how to use the M&M-KjNMF method with user-supplied data or, if you prefer, with test data. Therefore, please read how to organize your data structure before running the M&M-KjNMF method in the following sections. To better understand their structure, you can also explore the test data set (located in _/INPUT DATA_ or _/CONSTRAINTS DATA_). Once you have organized your data and run the M&M-KjNMF method, you will obtain tabulated results, clusters of variables (e.g., genes).
 
 # Dependencies
 Install or update the following python packages: **numpy**, **pandas**, **scikit-learn**, and **munkres**.
@@ -65,7 +65,7 @@ The structure of this repository is:
 ### Data pre-processing
 * It is advisable to impute, select variables, and scale the data previously since high dimensions can delay the execution of M&M-KjNMF. 
 * The files are loaded through the pandas read_csv function. Therefore, the rows and columns are required to have identifiers for each project. 
-  So, for example, the rows would be the barcodes of patients or cell lines and the columns would be identified with the names of the _genes_, _proteins_, or _mirnas_.
+  So, for example, the rows would be the barcodes of patients or cell lines, and the columns would be identified with the names of the _genes_, _proteins_, or _mirnas_.
 * The input data between projects must contain the same column identifiers, e.g., if, between **tcga** and **ccle**, there are 20,000 genes in common. 
   The two profiles for these projects must have these genes. Likewise, input data within projects must contain the same row identifiers (patients or cell lines). 
   For instance, if in **tcga** there are 500 patients with all profiles included, then only these should be selected.
@@ -84,11 +84,11 @@ These files should be placed in the **INPUT DATA** folder.
 * There are two types of matrix constraints, _R_ and _Theta_.
 * These constraints are obtained from databases such as BioGrid, DrugBank, mirNet, and others. 
 * The constraint matrices incorporate the degree of information between the associations or interactions between variables (e.g., molecules). 
-* For _Theta_ constraints, if there are several of them, it is advisable to sum the matrices element by element. 
+* For _Theta_ constraints, if there are several, it is advisable to sum the matrices element by element. 
   For example, for mrna, theta constraints can be generated for gene expression, physical interactions of gene products, transcription factors, and metabolic pathways.
 * Like the Input data, the constraints must contain the row and column identifiers.  
   For the former, the interaction is between different entities, e.g., _mirna_ and _drug_. For the latter, the interactions are between a single entity, e.g., between _mirna_. 
-* If the _Theta_ or _R_ constraint does not exist, there is no need to incorporate it as an empty array. 
+* If the _Theta_ or _R_ constraint does not exist, it is unnecessary to incorporate it as an empty array. 
   Instead, the code takes care of creating it as an array of zeros with the correct dimensions.
 
 ### Correct names for Constraints data files
