@@ -128,7 +128,7 @@ For executing M&M-KjNMF and an enrichment analysis, you can set the path of 'Rsc
 
 If you do not prefer to run enrichment analysis use:
 
-  python workingSpaceMMKjNMF.py --Rpath ''
+    python workingSpaceMMKjNMF.py --Rpath ''
 
 
 
@@ -144,7 +144,7 @@ lambda_2       |  R constraints                            | L2           | 10  
 delta_1        |  sum\{sum\{\|\|h^I_j\|\|^2_1\}\}          | d1           | 1.0e-3         |
 omega_1        |  \|\|phi(X_I)A_I - phi(X_J)A_J\|\|^2_F    | o1           | 1.0e-7         |
 omega_2        |  \|\|phi(Y_I)A_I - phi(Y_J)A_J\|\|^2_F    | o2           | 1.0e-7         |
-sigma          |  Variance in Gaussian kernel              | sigma        | 1              |
+sigma          |  Variance of the Gaussian kernel          | sigma        | 1              |
 
 *Review the formulation of the optimization problem in the article.
 
@@ -155,10 +155,18 @@ To do this, run the following command line to assign the values for each hyperpa
 	python workingSpaceMMKjNMF.py --Rpath 'path/to/Rscript.exe' --K [30,60,90] --r1 [1e-5,1e-3] -- r2 [1e-5,1e-3] --L1 [1,10] --L2 [1,10] --d1 [1e-5,1e-3] --o1 [1e-7,1e-5] --o2 [1e-7,1e-5] --sigma [1,2,5]
 
 # Results
-* In the co-mod_tabulated_results folder, the file named **Tabulated_results_for_['profile1', 'profile2', etc].csv** is stored, which contains the results of each run for the selected hyperparameters. The following metrics are calculated for each Input data:
+* In the co-mod_tabulated_results folder, the file named **Tabulated_results_MM-KjNMF_for_['profile1', 'profile2', etc].csv** is stored, which contains the results of each run for the selected hyperparameters. The following metrics are calculated for each Input data:
     + _rho_: Cophenetic coefficient.
     + _rss_: residual sum of squares.
     + _r2_: Coefficient of determination adjusted.
+    + _AUC_: Compare the H_I matrix obtained in training phase vs the H_I predicted in testing phase.
+    + _min_var_: Minimum variables included in a cluster.
+    + _max_var_: Maximum variables included in a cluster.
+    + _mean_var_: Average of variables included in a cluster.
+    + _perc_cod_no_vacio_: Percentage of non-empty clusters.
+    + _perc_var_incluidas_: Ratio of variables included in the clusters over the total number of molecules. May be greater than one if molecules are repeated between clusters.
+    + _BioRelevanceScore_: Score that measure the relevance of clusters in biological terms.The higher the value the better.
+    + _geneRatio_avg_: Ratio for inclusion of genes by enriched terms.
 * The folders named according to the Input data contain the variable clusters.
 * The co-mod_bestA_and_bestH folder contains the low-rank matrices _A_I_ and _H_I_.
 
