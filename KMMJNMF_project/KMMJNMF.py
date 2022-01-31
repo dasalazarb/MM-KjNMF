@@ -259,7 +259,7 @@ def kmmjnmf(merged,param):
             
             #stop criterion
             AtKA['AtKA_ccle']={k: np.dot(np.dot(A['A0_ccle'][k].T,Kn['K_ccle'][k]),A['A0_ccle'][k]) for k in ccle.keys()}
-            AtKA['AtKA_tcga']={k: np.dot(np.dot(A['A0_tcga'][k].T,Kn['K_tcga'][k]),A['A0_tcga'][k]) for k in tcga.keys()}        
+            AtKA['AtKA_tcga']={k: np.dot(np.dot(A['A0_tcga'][k].T,Kn['K_tcga'][k]),A['A0_tcga'][k]) for k in tcga.keys()}
             Hsumtheta_record, sumHRt_record = compute_HsumTheta_sumHRt_record(H, theta_record, R_record);
             #matrices omicas, una al lado de la otra en un solo numpy (tcga NO tiene drug)
             #terminos de la FO 
@@ -325,6 +325,8 @@ def kmmjnmf(merged,param):
             AUC_H_acum[k]=AUC_H_acum[k]+AUC_H[k][0]
         ## ENDA SARA
 
+    #### 
+        
 # %% Cophenetic coefficient calculation
     # ------------------------------------------------------------------------- #
     #### ........... Consensus matrix and cophenetic coefficient ........... ####
@@ -410,7 +412,34 @@ def kmmjnmf(merged,param):
     print("")
     
     weightedAverage = 0.2 * rho_C_avg + 0.4 * AUC_H_average['average'] + 0.4 * cod_stats2[0]
+   
+    #### Pre-imagen
+    eta=0.000001
+    F=[]
+    for key, value in best_A.items():
+        F2 = []
+        for i in range(value.shape[1]):
+            #Alpha
+            alpha=v[:,i]
+            #alpha=np.matmul(np.matmul(W,H),w_t)
+
+            p1=np.linalg.inv(np.matmul(tcga_train[key],np.transpose(tcga_train[key])))
+            ### calcular de una vez -> KIJ_tcga!!!!
+            p2=np.matmul(tcga_train[key],np.matmul(np.transpose(tcga_train[key]),tcga_train[key]) - eta*np.linalg.inv(KIJ_tcga))
+
+            preimage=np.matmul(np.matmul(p1,p2),alpha)
+
+            F2.append(preimage)
+            # F.append(preimage)
+            
+        print(preimage)
+        F.append(F2)
     
+    ### k concatendas ... revisar
+    F=np.array(F)
+    
+    
+
 # %% Outputs
     # ------------------------------------- #
     #### ........... Outputs ........... ####
